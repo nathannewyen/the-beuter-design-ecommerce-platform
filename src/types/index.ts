@@ -28,6 +28,7 @@ export interface Product {
   compareAtPrice?: number;
   sizes: ProductSize[];
   images: ProductImage[];
+  hoverImage?: ProductImage;
   description: string;
   details: string[];
   composition: string;
@@ -45,10 +46,16 @@ export interface Campaign {
   description: string;
   hero: ProductImage;
   secondary?: ProductImage;
+  link?: string;
 }
 
 export interface CartLine {
   productId: string;
   size: ProductSize;
   quantity: number;
+}
+
+export interface WishlistEntry {
+  productId: string;
+  addedAt: number;
 }

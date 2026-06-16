@@ -1,0 +1,211 @@
+import type { Product } from "@/types";
+import { productImages } from "./images";
+
+export const products: Product[] = [
+  {
+    id: "wmns-satin-shirt-ash-blue",
+    slug: "wmns-satin-shirt-ash-blue",
+    name: "BEUTER® WMNS SATIN SHIRT",
+    color: "ASH BLUE",
+    gender: "womens",
+    category: "shirts",
+    price: 168,
+    sizes: ["XS", "S", "M", "L"],
+    images: [
+      { src: productImages.satinShirtFront, alt: "Ash blue satin shirt front view" },
+      { src: productImages.satinShirtBack, alt: "Ash blue satin shirt back view" },
+    ],
+    hoverImage: {
+      src: productImages.satinShirtBack,
+      alt: "Ash blue satin shirt alternate view",
+    },
+    description:
+      "A relaxed silk-satin shirt with a softened collar, dropped shoulder and pearl half-buttons. Cut to be tucked or worn loose.",
+    details: [
+      "Mother-of-pearl half buttons",
+      "Dropped shoulder, relaxed body",
+      "Curved hem with side vents",
+      "Made in Vietnam",
+    ],
+    composition: "100% silk satin · Dry clean only",
+    isNew: true,
+    isFeatured: true,
+    campaignId: "summer-26",
+  },
+  {
+    id: "wmns-deep-v-halter-polo-white",
+    slug: "wmns-deep-v-halter-polo-white",
+    name: "BEUTER® WMNS DEEP-V HALTER POLO TOP",
+    color: "WHITE",
+    gender: "womens",
+    category: "tops",
+    price: 96,
+    sizes: ["XS", "S", "M", "L"],
+    images: [
+      { src: productImages.halterTopFront, alt: "White halter polo front" },
+      { src: productImages.halterTopBack, alt: "White halter polo back" },
+    ],
+    hoverImage: {
+      src: productImages.halterTopBack,
+      alt: "White halter polo back view",
+    },
+    description:
+      "A cotton-piqué halter polo with a deep V opening and structured ribbed collar. Backless silhouette for warm seasons.",
+    details: [
+      "Ribbed knit collar",
+      "Open back with tie",
+      "Tonal stitching",
+      "Made in Vietnam",
+    ],
+    composition: "92% cotton, 8% elastane",
+    isFeatured: true,
+    campaignId: "summer-26",
+  },
+  {
+    id: "ms-classic-vneck-tee-sand",
+    slug: "ms-classic-vneck-tee-sand",
+    name: "BEUTER® MS CLASSIC V-NECK T-SHIRT",
+    color: "SAND",
+    gender: "mens",
+    category: "tops",
+    price: 68,
+    sizes: ["S", "M", "L", "XL"],
+    images: [
+      { src: productImages.vneckTeeFront, alt: "Sand v-neck tee front" },
+      { src: productImages.vneckTeeBack, alt: "Sand v-neck tee back" },
+    ],
+    hoverImage: {
+      src: productImages.vneckTeeBack,
+      alt: "Sand v-neck tee alternate view",
+    },
+    description:
+      "Compact-spun cotton v-neck cut a touch longer than standard, with reinforced shoulder seams and a clean rib at neck.",
+    details: [
+      "Compact spun cotton",
+      "Reinforced shoulder seams",
+      "Clean rib neckline",
+      "Garment-washed for softness",
+    ],
+    composition: "100% compact-spun cotton",
+    isFeatured: true,
+  },
+  {
+    id: "ms-dust-check-half-zip-grey",
+    slug: "ms-dust-check-half-zip-grey",
+    name: "BEUTER® MS DUST CHECK HALF-ZIP SWEATER",
+    color: "GREY",
+    gender: "mens",
+    category: "knitwear",
+    price: 248,
+    sizes: ["S", "M", "L", "XL"],
+    images: [
+      { src: productImages.halfZipSweaterFront, alt: "Grey check sweater front" },
+      { src: productImages.halfZipSweaterBack, alt: "Grey check sweater back" },
+    ],
+    hoverImage: {
+      src: productImages.halfZipSweaterBack,
+      alt: "Grey check sweater back",
+    },
+    description:
+      "A heavyweight half-zip sweater in a brushed dust-check jacquard, with a ribbed funnel collar and YKK metal zip.",
+    details: [
+      "Brushed jacquard knit",
+      "Funnel collar with YKK zip",
+      "Ribbed cuffs and hem",
+      "Boxy regular fit",
+    ],
+    composition: "70% wool, 30% cotton",
+    isFeatured: true,
+  },
+  {
+    id: "pleated-shorts-woodburn-brown",
+    slug: "pleated-shorts-woodburn-brown",
+    name: "BEUTER® PLEATED SHORTS",
+    color: "WOODBURN BROWN",
+    gender: "mens",
+    category: "shorts",
+    price: 128,
+    sizes: ["S", "M", "L", "XL"],
+    images: [
+      { src: productImages.pleatedShortsBrown, alt: "Pleated shorts woodburn brown" },
+    ],
+    description:
+      "A double-pleated short cut from washed cotton twill with side-adjuster tabs and a finished cuff at the hem.",
+    details: [
+      "Washed cotton twill",
+      "Double front pleats",
+      "Side adjuster tabs",
+      "Cuffed hem, 9\" inseam",
+    ],
+    composition: "100% cotton twill",
+    campaignId: "summer-26",
+  },
+  {
+    id: "pleated-shorts-black",
+    slug: "pleated-shorts-black",
+    name: "BEUTER® PLEATED SHORTS",
+    color: "BLACK",
+    gender: "mens",
+    category: "shorts",
+    price: 128,
+    sizes: ["S", "M", "L", "XL"],
+    images: [
+      { src: productImages.pleatedShortsBlack, alt: "Pleated shorts black" },
+    ],
+    description:
+      "Double-pleated cotton-twill shorts in deep black, with adjuster tabs and a clean cuffed hem.",
+    details: [
+      "Washed cotton twill",
+      "Double front pleats",
+      "Side adjuster tabs",
+      "Cuffed hem, 9\" inseam",
+    ],
+    composition: "100% cotton twill",
+  },
+  {
+    id: "straight-jeans-off-white",
+    slug: "straight-jeans-off-white",
+    name: "BEUTER® STRAIGHT JEANS",
+    color: "OFF-WHITE",
+    gender: "unisex",
+    category: "denim",
+    price: 198,
+    sizes: ["XS", "S", "M", "L", "XL"],
+    images: [
+      { src: productImages.straightJeansOffWhite, alt: "Off-white straight jeans" },
+    ],
+    description:
+      "Mid-rise straight jeans cut from a structured 13oz Japanese selvedge, washed once for a clean, crisp hand.",
+    details: [
+      "13oz Japanese selvedge denim",
+      "Mid-rise, straight leg",
+      "Branded leather patch",
+      "One-wash finish",
+    ],
+    composition: "100% cotton denim",
+    isFeatured: true,
+  },
+  {
+    id: "washed-distressed-straight-jeans-brown",
+    slug: "washed-distressed-straight-jeans-brown",
+    name: "BEUTER® WASHED DISTRESSED STRAIGHT JEANS",
+    color: "BROWN",
+    gender: "unisex",
+    category: "denim",
+    price: 218,
+    compareAtPrice: 268,
+    sizes: ["S", "M", "L", "XL"],
+    images: [
+      { src: productImages.straightJeansBrown, alt: "Washed brown straight jeans" },
+    ],
+    description:
+      "Washed and lightly distressed brown denim with hand-sanded fades and contrast bartacks at stress points.",
+    details: [
+      "Hand-sanded fades",
+      "Reinforced bartacks",
+      "Mid-rise, straight leg",
+      "Made in Vietnam",
+    ],
+    composition: "100% cotton denim",
+  },
+];

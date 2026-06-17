@@ -1,17 +1,32 @@
-import { Container } from "@/components/container";
+import { CampaignHero } from "@/components/home/campaign-hero";
+import { FeaturedProducts } from "@/components/home/featured-products";
+import { CampaignSplit } from "@/components/home/campaign-split";
+import { BrandStatement } from "@/components/home/brand-statement";
+import { NewsletterTeaser } from "@/components/home/newsletter-teaser";
+import { Reveal } from "@/components/motion/reveal";
+import { campaigns, getFeaturedProducts } from "@/data";
 
 export default function HomePage() {
+  const featured = getFeaturedProducts(8);
+  const secondary = campaigns.find((c) => c.id === "spring-26-intermission");
+
   return (
-    <Container size="wide" className="py-24 sm:py-32">
-      <p className="beuter-eyebrow text-muted">Summer 26</p>
-      <h1 className="beuter-display text-5xl sm:text-7xl mt-4 max-w-3xl">
-        Quiet pieces. Long seasons.
-      </h1>
-      <p className="mt-6 max-w-xl text-muted-strong leading-relaxed">
-        BEUTER® works in elevated essentials, seasonal capsules and considered
-        tailoring made in Ho Chi Minh City. The full storefront lands in the
-        next pass.
-      </p>
-    </Container>
+    <>
+      <CampaignHero campaigns={campaigns} />
+      <Reveal>
+        <FeaturedProducts products={featured} />
+      </Reveal>
+      {secondary && (
+        <Reveal>
+          <CampaignSplit campaign={secondary} />
+        </Reveal>
+      )}
+      <Reveal>
+        <BrandStatement />
+      </Reveal>
+      <Reveal>
+        <NewsletterTeaser />
+      </Reveal>
+    </>
   );
 }

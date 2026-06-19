@@ -1,5 +1,6 @@
 import { formatPrice } from "@/lib/format";
 import { Button } from "@/components/ui/button";
+import { FreeShippingBar } from "./free-shipping-bar";
 
 interface CartSummaryProps {
   subtotal: number;
@@ -20,6 +21,7 @@ export function CartSummary({
 
   return (
     <div className="border-t border-line bg-background p-6 space-y-4">
+      <FreeShippingBar subtotal={subtotal} threshold={FREE_SHIPPING_THRESHOLD} />
       {remainingForFreeShip > 0 ? (
         <p className="text-[12px] text-muted text-center">
           {formatPrice(remainingForFreeShip)} away from free worldwide shipping.

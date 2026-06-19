@@ -20,14 +20,17 @@ function keyFor(productId: string, size: ProductSize) {
   return `${productId}::${size}`;
 }
 
+const noopStorage = {
+  length: 0,
+  clear: () => undefined,
+  getItem: () => null,
+  key: () => null,
+  removeItem: () => undefined,
+  setItem: () => undefined,
+} satisfies Storage;
+
 const browserStorage = createJSONStorage(() =>
-  typeof window === "undefined"
-    ? ({
-        getItem: () => null,
-        setItem: () => undefined,
-        removeItem: () => undefined,
-      } as Storage)
-    : window.localStorage,
+  typeof window === "undefined" ? noopStorage : window.localStorage,
 );
 
 export const useCart = create<CartState>()(

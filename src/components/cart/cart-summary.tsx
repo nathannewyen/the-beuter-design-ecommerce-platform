@@ -15,8 +15,20 @@ export function CartSummary({
   busy,
 }: CartSummaryProps) {
   const total = subtotal + shipping;
+  const FREE_SHIPPING_THRESHOLD = 250;
+  const remainingForFreeShip = Math.max(0, FREE_SHIPPING_THRESHOLD - subtotal);
+
   return (
     <div className="border-t border-line bg-background p-6 space-y-4">
+      {remainingForFreeShip > 0 ? (
+        <p className="text-[12px] text-muted text-center">
+          {formatPrice(remainingForFreeShip)} away from free worldwide shipping.
+        </p>
+      ) : (
+        <p className="text-[12px] text-foreground text-center">
+          You qualify for free worldwide shipping.
+        </p>
+      )}
       <div className="flex justify-between text-[13px] text-muted">
         <span>Subtotal</span>
         <span className="tabular-nums">{formatPrice(subtotal)}</span>

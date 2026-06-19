@@ -2,12 +2,53 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import { X } from "lucide-react";
+import { useEffect, useMemo } from "react";
 import { useCart } from "@/lib/cart-store";
+import { products } from "@/data";
+import { CartLineItem } from "./cart-line-item";
+import { CartSummary } from "./cart-summary";
+import { CartEmpty } from "./cart-empty";
 
 export function CartDrawer() {
   const isOpen = useCart((s) => s.isOpen);
   const close = useCart((s) => s.close);
   const lines = useCart((s) => s.lines);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = prev;
+    };
+  }, [isOpen]);
+
+  useEffect(() => {
+    function onKey(event: KeyboardEvent) {
+      if (event.key === "Escape") close();
+    }
+    if (isOpen) window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [isOpen, close]);
+
+  const enriched = useMemo(
+    () =>
+      lines
+        .map((line) => ({
+          line,
+          product: products.find((p) => p.id === line.productId),
+        }))
+        .filter((entry): entry is { line: typeof entry.line; product: NonNullable<typeof entry.product> } =>
+          Boolean(entry.product),
+        ),
+    [lines],
+  );
+
+  const subtotal = enriched.reduce(
+    (total, { line, product }) => total + product.price * line.quantity,
+    0,
+  );
+  const itemCount = lines.reduce((t, l) => t + l.quantity, 0);
 
   return (
     <AnimatePresence>
@@ -38,8 +79,7 @@ export function CartDrawer() {
           >
             <div className="flex items-center justify-between px-6 h-16 border-b border-line">
               <p className="beuter-eyebrow">
-                Cart · {lines.reduce((t, l) => t + l.quantity, 0)} item
-                {lines.length === 1 ? "" : "s"}
+                Cart · {itemCount} item{itemCount === 1 ? "" : "s"}
               </p>
               <button
                 type="button"
@@ -50,11 +90,24 @@ export function CartDrawer() {
                 <X size={18} strokeWidth={1.5} />
               </button>
             </div>
-            <div className="flex-1 overflow-y-auto px-6 py-8 flex items-center justify-center text-sm text-muted">
-              {lines.length === 0
-                ? "Your cart is empty."
-                : `${lines.length} line(s) — full UI lands in next pass.`}
-            </div>
+
+            {enriched.length === 0 ? (
+              <CartEmpty onClose={close} />
+            ) : (
+              <>
+                <ul className="flex-1 overflow-y-auto px-6">
+                  {enriched.map(({ line, product }) => (
+                    <CartLineItem
+                      key={`${line.productId}-${line.size}`}
+                      line={line}
+                      product={product}
+                      onNavigate={close}
+                    />
+                  ))}
+                </ul>
+                <CartSummary subtotal={subtotal} />
+              </>
+            )}
           </motion.aside>
         </>
       )}

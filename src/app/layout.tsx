@@ -4,6 +4,7 @@ import "./globals.css";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { CartDrawer } from "@/components/cart/cart-drawer";
+import { NewsletterModal } from "@/components/newsletter-modal";
 import { siteConfig } from "@/lib/site";
 
 const sans = Inter({
@@ -51,6 +52,7 @@ export default function RootLayout({
         <main className="flex-1">{children}</main>
         <SiteFooter />
         <CartDrawer />
+        <NewsletterModal />
       </body>
     </html>
   );

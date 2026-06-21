@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
-import { Container } from "@/components/container";
-import { ProductGrid } from "@/components/product/product-grid";
-import { FilterRail } from "@/components/shop/filter-rail";
-import { SortSelect } from "@/components/shop/sort-select";
+import { CategorySidebar } from "@/components/shop/category-sidebar";
+import { ProductCard } from "@/components/product/product-card";
 import { filterProducts } from "@/data";
 import type { Product, ProductCategory, ProductGender } from "@/types";
 
@@ -33,44 +31,32 @@ export default async function ShopPage({
   items = sortProducts(items, sort);
 
   return (
-    <Container size="wide" className="py-12 sm:py-16">
-      <header className="flex items-end justify-between gap-6 flex-wrap">
-        <div>
-          <p className="beuter-eyebrow text-muted">Webstore</p>
-          <h1 className="beuter-display text-4xl sm:text-5xl mt-3">
-            {titleFor(gender, category)}
-          </h1>
-          <p className="mt-3 text-sm text-muted-strong">
-            {items.length} {items.length === 1 ? "piece" : "pieces"}
-          </p>
-        </div>
-        <SortSelect />
-      </header>
-
-      <div className="mt-10 grid md:grid-cols-[200px_1fr] gap-10">
-        <FilterRail />
+    <div className="px-6 sm:px-10 pt-10 pb-20 flex flex-col lg:flex-row gap-10 lg:gap-16">
+      <CategorySidebar />
+      <div className="flex-1">
         {items.length > 0 ? (
-          <ProductGrid products={items} columns={{ base: 2, md: 2, lg: 3 }} />
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-14">
+            {items.map((product, i) => (
+              <ProductCard
+                key={product.id}
+                product={product}
+                priority={i < 3}
+              />
+            ))}
+          </div>
         ) : (
-          <div className="border border-line p-12 text-center">
-            <p className="beuter-display text-2xl">Nothing matches that combination.</p>
-            <p className="mt-3 text-sm text-muted">
-              Try removing a filter — or browse the whole shop.
+          <div className="border border-line py-24 text-center">
+            <p className="text-2xl font-semibold tracking-tight">
+              Nothing matches that combination.
+            </p>
+            <p className="mt-3 bd-eyebrow opacity-60">
+              Try removing a filter or browse the whole shop.
             </p>
           </div>
         )}
       </div>
-    </Container>
+    </div>
   );
-}
-
-function titleFor(gender?: ProductGender, category?: ProductCategory) {
-  if (gender === "womens") return "Women";
-  if (gender === "mens") return "Men";
-  if (gender === "unisex") return "Unisex";
-  if (category === "denim") return "Denim";
-  if (category) return category[0].toUpperCase() + category.slice(1);
-  return "All pieces";
 }
 
 function sortProducts(items: Product[], sort?: string): Product[] {

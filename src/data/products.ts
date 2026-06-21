@@ -1,5 +1,8 @@
 import type { Product } from "@/types";
-import { productImages } from "./images";
+
+function img(filename: string, version: string) {
+  return `https://pos.nvncdn.com/fcb45e-89373/ps/${filename}?v=${version}`;
+}
 
 export const products: Product[] = [
   {
@@ -9,16 +12,14 @@ export const products: Product[] = [
     color: "ASH BLUE",
     gender: "womens",
     category: "shirts",
-    price: 168,
+    price: 708999,
     sizes: ["XS", "S", "M", "L"],
     images: [
-      { src: productImages.satinShirtFront, alt: "Ash blue satin shirt front view" },
-      { src: productImages.satinShirtBack, alt: "Ash blue satin shirt back view" },
+      {
+        src: img("BEUTER-WMNS-SATIN-SHIRT.jpg", "1781163732"),
+        alt: "BEUTER® WMNS Satin Shirt - Ash Blue",
+      },
     ],
-    hoverImage: {
-      src: productImages.satinShirtBack,
-      alt: "Ash blue satin shirt alternate view",
-    },
     description:
       "A relaxed silk-satin shirt with a softened collar, dropped shoulder and pearl half-buttons. Cut to be tucked or worn loose.",
     details: [
@@ -39,16 +40,14 @@ export const products: Product[] = [
     color: "WHITE",
     gender: "womens",
     category: "tops",
-    price: 96,
+    price: 657000,
     sizes: ["XS", "S", "M", "L"],
     images: [
-      { src: productImages.halterTopFront, alt: "White halter polo front" },
-      { src: productImages.halterTopBack, alt: "White halter polo back" },
+      {
+        src: img("BEUTER-WMNS-DEEP-V-HALTER-POLO-TOP-WHITE-1.jpg", "1780910003"),
+        alt: "BEUTER® WMNS Deep-V Halter Polo Top - White",
+      },
     ],
-    hoverImage: {
-      src: productImages.halterTopBack,
-      alt: "White halter polo back view",
-    },
     description:
       "A cotton-piqué halter polo with a deep V opening and structured ribbed collar. Backless silhouette for warm seasons.",
     details: [
@@ -62,50 +61,20 @@ export const products: Product[] = [
     campaignId: "summer-26",
   },
   {
-    id: "ms-classic-vneck-tee-sand",
-    slug: "ms-classic-vneck-tee-sand",
-    name: "BEUTER® MS CLASSIC V-NECK T-SHIRT",
-    color: "SAND",
-    gender: "mens",
-    category: "tops",
-    price: 68,
-    sizes: ["S", "M", "L", "XL"],
-    images: [
-      { src: productImages.vneckTeeFront, alt: "Sand v-neck tee front" },
-      { src: productImages.vneckTeeBack, alt: "Sand v-neck tee back" },
-    ],
-    hoverImage: {
-      src: productImages.vneckTeeBack,
-      alt: "Sand v-neck tee alternate view",
-    },
-    description:
-      "Compact-spun cotton v-neck cut a touch longer than standard, with reinforced shoulder seams and a clean rib at neck.",
-    details: [
-      "Compact spun cotton",
-      "Reinforced shoulder seams",
-      "Clean rib neckline",
-      "Garment-washed for softness",
-    ],
-    composition: "100% compact-spun cotton",
-    isFeatured: true,
-  },
-  {
     id: "ms-dust-check-half-zip-grey",
     slug: "ms-dust-check-half-zip-grey",
     name: "BEUTER® MS DUST CHECK HALF-ZIP SWEATER",
     color: "GREY",
     gender: "mens",
     category: "knitwear",
-    price: 248,
+    price: 1196000,
     sizes: ["S", "M", "L", "XL"],
     images: [
-      { src: productImages.halfZipSweaterFront, alt: "Grey check sweater front" },
-      { src: productImages.halfZipSweaterBack, alt: "Grey check sweater back" },
+      {
+        src: img("BEUTER-MS-DUST-CHECK-HALF-ZIP-SWEATER-GREY-1.jpg", "1780910462"),
+        alt: "BEUTER® MS Dust Check Half-Zip Sweater - Grey",
+      },
     ],
-    hoverImage: {
-      src: productImages.halfZipSweaterBack,
-      alt: "Grey check sweater back",
-    },
     description:
       "A heavyweight half-zip sweater in a brushed dust-check jacquard, with a ribbed funnel collar and YKK metal zip.",
     details: [
@@ -118,49 +87,30 @@ export const products: Product[] = [
     isFeatured: true,
   },
   {
-    id: "pleated-shorts-woodburn-brown",
-    slug: "pleated-shorts-woodburn-brown",
-    name: "BEUTER® PLEATED SHORTS",
-    color: "WOODBURN BROWN",
+    id: "ms-classic-vneck-tee-sand",
+    slug: "ms-classic-vneck-tee-sand",
+    name: "BEUTER® MS CLASSIC V-NECK T-SHIRT",
+    color: "SAND",
     gender: "mens",
-    category: "shorts",
-    price: 128,
+    category: "tops",
+    price: 548000,
     sizes: ["S", "M", "L", "XL"],
     images: [
-      { src: productImages.pleatedShortsBrown, alt: "Pleated shorts woodburn brown" },
+      {
+        src: img("BEUTER-MS-CLASSIC-V-NECK-T-SHIRT-SAND-1.jpg", "1780910680"),
+        alt: "BEUTER® MS Classic V-Neck T-Shirt - Sand",
+      },
     ],
     description:
-      "A double-pleated short cut from washed cotton twill with side-adjuster tabs and a finished cuff at the hem.",
+      "Compact-spun cotton v-neck cut a touch longer than standard, with reinforced shoulder seams and a clean rib at neck.",
     details: [
-      "Washed cotton twill",
-      "Double front pleats",
-      "Side adjuster tabs",
-      "Cuffed hem, 9\" inseam",
+      "Compact spun cotton",
+      "Reinforced shoulder seams",
+      "Clean rib neckline",
+      "Garment-washed for softness",
     ],
-    composition: "100% cotton twill",
-    campaignId: "summer-26",
-  },
-  {
-    id: "pleated-shorts-black",
-    slug: "pleated-shorts-black",
-    name: "BEUTER® PLEATED SHORTS",
-    color: "BLACK",
-    gender: "mens",
-    category: "shorts",
-    price: 128,
-    sizes: ["S", "M", "L", "XL"],
-    images: [
-      { src: productImages.pleatedShortsBlack, alt: "Pleated shorts black" },
-    ],
-    description:
-      "Double-pleated cotton-twill shorts in deep black, with adjuster tabs and a clean cuffed hem.",
-    details: [
-      "Washed cotton twill",
-      "Double front pleats",
-      "Side adjuster tabs",
-      "Cuffed hem, 9\" inseam",
-    ],
-    composition: "100% cotton twill",
+    composition: "100% compact-spun cotton",
+    isFeatured: true,
   },
   {
     id: "straight-jeans-off-white",
@@ -169,10 +119,13 @@ export const products: Product[] = [
     color: "OFF-WHITE",
     gender: "unisex",
     category: "denim",
-    price: 198,
+    price: 1036800,
     sizes: ["XS", "S", "M", "L", "XL"],
     images: [
-      { src: productImages.straightJeansOffWhite, alt: "Off-white straight jeans" },
+      {
+        src: img("BEUTER-STRAIGHT-JEANS-OFF-WHITE-1.jpg", "1768800153"),
+        alt: "BEUTER® Straight Jeans - Off-White",
+      },
     ],
     description:
       "Mid-rise straight jeans cut from a structured 13oz Japanese selvedge, washed once for a clean, crisp hand.",
@@ -192,11 +145,14 @@ export const products: Product[] = [
     color: "BROWN",
     gender: "unisex",
     category: "denim",
-    price: 218,
-    compareAtPrice: 268,
+    price: 1209600,
+    compareAtPrice: 1512000,
     sizes: ["S", "M", "L", "XL"],
     images: [
-      { src: productImages.straightJeansBrown, alt: "Washed brown straight jeans" },
+      {
+        src: img("BEUTER-WASHED-DISTRESSED-STRAIGHT-JEANS-BROWN-1.jpg", "1768800370"),
+        alt: "BEUTER® Washed Distressed Straight Jeans - Brown",
+      },
     ],
     description:
       "Washed and lightly distressed brown denim with hand-sanded fades and contrast bartacks at stress points.",
@@ -207,5 +163,294 @@ export const products: Product[] = [
       "Made in Vietnam",
     ],
     composition: "100% cotton denim",
+    isFeatured: true,
+  },
+  {
+    id: "pleated-shorts-woodburn-brown",
+    slug: "pleated-shorts-woodburn-brown",
+    name: "BEUTER® PLEATED SHORTS",
+    color: "WOODBURN BROWN",
+    gender: "mens",
+    category: "shorts",
+    price: 1050840,
+    sizes: ["S", "M", "L", "XL"],
+    images: [
+      {
+        src: img("BEUTER-MS-PLEATED-SHORTS-WOODBURN-BROWN-1.jpg", "1768800965"),
+        alt: "BEUTER® Pleated Shorts - Woodburn Brown",
+      },
+    ],
+    description:
+      "A double-pleated short cut from washed cotton twill with side-adjuster tabs and a finished cuff at the hem.",
+    details: [
+      "Washed cotton twill",
+      "Double front pleats",
+      "Side adjuster tabs",
+      "Cuffed hem, 9\" inseam",
+    ],
+    composition: "100% cotton twill",
+    campaignId: "summer-26",
+  },
+  {
+    id: "pleated-shorts-black",
+    slug: "pleated-shorts-black",
+    name: "BEUTER® PLEATED SHORTS",
+    color: "BLACK",
+    gender: "mens",
+    category: "shorts",
+    price: 1050840,
+    sizes: ["S", "M", "L", "XL"],
+    images: [
+      {
+        src: img("BEUTER-MS-PLEATED-SHORTS-BLACK-1.jpg", "1768801088"),
+        alt: "BEUTER® Pleated Shorts - Black",
+      },
+    ],
+    description:
+      "Double-pleated cotton-twill shorts in deep black, with adjuster tabs and a clean cuffed hem.",
+    details: [
+      "Washed cotton twill",
+      "Double front pleats",
+      "Side adjuster tabs",
+      "Cuffed hem, 9\" inseam",
+    ],
+    composition: "100% cotton twill",
+    isFeatured: true,
+  },
+  {
+    id: "wmns-suede-mini-skirt-black",
+    slug: "wmns-suede-mini-skirt-black",
+    name: "BEUTER® WMNS SUEDE MINI SKIRT",
+    color: "BLACK",
+    gender: "womens",
+    category: "trousers",
+    price: 725760,
+    sizes: ["XS", "S", "M", "L"],
+    images: [
+      {
+        src: img("BEUTER-WMNS-SUEDE-MINI-SKIRT-BLACK-1.jpg", "1768801187"),
+        alt: "BEUTER® WMNS Suede Mini Skirt - Black",
+      },
+    ],
+    description:
+      "A short A-line skirt cut from buttery brushed suede with a concealed back zip.",
+    details: ["Brushed suede", "Concealed back zip", "A-line silhouette"],
+    composition: "100% lambskin suede",
+  },
+  {
+    id: "wmns-suede-mini-skirt-beige",
+    slug: "wmns-suede-mini-skirt-beige",
+    name: "BEUTER® WMNS SUEDE MINI SKIRT",
+    color: "BEIGE",
+    gender: "womens",
+    category: "trousers",
+    price: 725760,
+    sizes: ["XS", "S", "M", "L"],
+    images: [
+      {
+        src: img("BEUTER-WMNS-SUEDE-MINI-SKIRT-BEIGE-1.jpg", "1768801721"),
+        alt: "BEUTER® WMNS Suede Mini Skirt - Beige",
+      },
+    ],
+    description:
+      "The signature mini skirt in a soft beige suede, lined for comfort.",
+    details: ["Brushed suede", "Concealed back zip", "A-line silhouette"],
+    composition: "100% lambskin suede",
+  },
+  {
+    id: "wmns-sheer-paneled-midi-skirt-cream",
+    slug: "wmns-sheer-paneled-midi-skirt-cream",
+    name: "BEUTER® WMNS SHEER-PANELED MIDI SKIRT",
+    color: "CREAM",
+    gender: "womens",
+    category: "trousers",
+    price: 1261440,
+    sizes: ["XS", "S", "M", "L"],
+    images: [
+      {
+        src: img("BEUTER-WMNS-SHEER-PANELED-MIDI-SKIRT-MOCHA-1.jpg", "1768801843"),
+        alt: "BEUTER® WMNS Sheer-Paneled Midi Skirt - Cream",
+      },
+    ],
+    description:
+      "Bias-cut midi skirt with sheer chiffon panels, finished with a fluted hem.",
+    details: ["Bias cut", "Chiffon side panels", "Fluted hem"],
+    composition: "60% silk, 40% nylon",
+  },
+  {
+    id: "wmns-leather-mini-shorts-oak",
+    slug: "wmns-leather-mini-shorts-oak",
+    name: "BEUTER® WMNS LEATHER MINI SHORTS",
+    color: "OAK",
+    gender: "womens",
+    category: "shorts",
+    price: 898560,
+    sizes: ["XS", "S", "M", "L"],
+    images: [
+      {
+        src: img("BEUTER-WMNS-LEATHER-MINI-SHORTS-OAK-1.jpg", "1768802060"),
+        alt: "BEUTER® WMNS Leather Mini Shorts - Oak",
+      },
+    ],
+    description: "Cropped leather shorts in an oak finish with side darts.",
+    details: ["Lambskin leather", "Side darts", "Hidden zip"],
+    composition: "100% lambskin leather",
+  },
+  {
+    id: "wmns-leather-mini-shorts-brown",
+    slug: "wmns-leather-mini-shorts-brown",
+    name: "BEUTER® WMNS LEATHER MINI SHORTS",
+    color: "BROWN",
+    gender: "womens",
+    category: "shorts",
+    price: 898560,
+    sizes: ["XS", "S", "M", "L"],
+    images: [
+      {
+        src: img("BEUTER-WMNS-LEATHER-MINI-SHORTS-BROWN-1.jpg", "1768802160"),
+        alt: "BEUTER® WMNS Leather Mini Shorts - Brown",
+      },
+    ],
+    description: "The oak silhouette in a deep cocoa brown finish.",
+    details: ["Lambskin leather", "Side darts", "Hidden zip"],
+    composition: "100% lambskin leather",
+  },
+  {
+    id: "wmns-halter-top-rosewood",
+    slug: "wmns-halter-top-rosewood",
+    name: "BEUTER® WMNS HALTER TOP",
+    color: "ROSEWOOD",
+    gender: "womens",
+    category: "tops",
+    price: 511920,
+    sizes: ["XS", "S", "M", "L"],
+    images: [
+      {
+        src: img("BEUTER-WMNS-HALTER-TOP-ROSEWOOD-1.jpg", "1768802236"),
+        alt: "BEUTER® WMNS Halter Top - Rosewood",
+      },
+    ],
+    description: "Stretch cotton halter with a soft V-neck and tie back.",
+    details: ["Cotton blend", "V-neck", "Tie back closure"],
+    composition: "92% cotton, 8% elastane",
+  },
+  {
+    id: "wmns-halter-top-cream",
+    slug: "wmns-halter-top-cream",
+    name: "BEUTER® WMNS HALTER TOP",
+    color: "CREAM",
+    gender: "womens",
+    category: "tops",
+    price: 511920,
+    sizes: ["XS", "S", "M", "L"],
+    images: [
+      {
+        src: img("BEUTER-WMNS-HALTER-TOP-CREAM-3.jpg", "1768802519"),
+        alt: "BEUTER® WMNS Halter Top - Cream",
+      },
+    ],
+    description: "The signature halter in a clean cream finish.",
+    details: ["Cotton blend", "V-neck", "Tie back closure"],
+    composition: "92% cotton, 8% elastane",
+  },
+  {
+    id: "uncaged-heart-distress-cap-gray",
+    slug: "uncaged-heart-distress-cap-gray",
+    name: 'BEUTER® "UNCAGED HEART" DISTRESS CAP',
+    color: "GRAY",
+    gender: "unisex",
+    category: "accessories",
+    price: 582120,
+    sizes: ["S", "M", "L"],
+    images: [
+      {
+        src: img("BEUTER-UNCAGED-HEART-DISTRESS-CAP-GRAY.jpg", "1768802723"),
+        alt: 'BEUTER® "Uncaged Heart" Distress Cap - Gray',
+      },
+    ],
+    description:
+      "Garment-washed cap with hand-distressed detailing and metal eyelet vents.",
+    details: ["Brushed cotton twill", "Hand-distressed", "Strap back closure"],
+    composition: "100% cotton",
+  },
+  {
+    id: "uncaged-heart-distress-cap-ivory",
+    slug: "uncaged-heart-distress-cap-ivory",
+    name: 'BEUTER® "UNCAGED HEART" DISTRESS CAP',
+    color: "IVORY",
+    gender: "unisex",
+    category: "accessories",
+    price: 582120,
+    sizes: ["S", "M", "L"],
+    images: [
+      {
+        src: img("BEUTER-UNCAGED-HEART-DISTRESS-CAP-IVORY.jpg", "1769082179"),
+        alt: 'BEUTER® "Uncaged Heart" Distress Cap - Ivory',
+      },
+    ],
+    description: "The signature distress cap in a soft ivory finish.",
+    details: ["Brushed cotton twill", "Hand-distressed", "Strap back closure"],
+    composition: "100% cotton",
+  },
+  {
+    id: "washed-classic-tshirt-mocha",
+    slug: "washed-classic-tshirt-mocha",
+    name: "BEUTER® WASHED CLASSIC T-SHIRT",
+    color: "MOCHA",
+    gender: "unisex",
+    category: "tops",
+    price: 521640,
+    sizes: ["S", "M", "L", "XL"],
+    images: [
+      {
+        src: img("BEUTER-WASHED-CLASSIC-T-SHIRT-MOCHA-1.jpg", "1768803088"),
+        alt: "BEUTER® Washed Classic T-Shirt - Mocha",
+      },
+    ],
+    description: "Heavyweight washed jersey tee with a relaxed body.",
+    details: ["8oz cotton jersey", "Garment-washed", "Relaxed fit"],
+    composition: "100% cotton",
+  },
+  {
+    id: "uncaged-heart-spray-tshirt-burgundy",
+    slug: "uncaged-heart-spray-tshirt-burgundy",
+    name: 'BEUTER® "UNCAGED HEART" SPRAY CLASSIC T-SHIRT',
+    color: "BURGUNDY",
+    gender: "unisex",
+    category: "tops",
+    price: 853200,
+    sizes: ["S", "M", "L", "XL"],
+    images: [
+      {
+        src: img("BEUTER-UNCAGED-HEART-SPRAY-CLASSIC-T-SHIRT-BURGUNDY-1.jpg", "1768803170"),
+        alt: 'BEUTER® "Uncaged Heart" Spray Classic T-Shirt - Burgundy',
+      },
+    ],
+    description: "Spray-printed heavyweight tee in a deep burgundy ground.",
+    details: ["8oz cotton jersey", "Hand spray-printed graphic", "Relaxed fit"],
+    composition: "100% cotton",
+  },
+  {
+    id: "wmns-boat-neck-half-sleeve-top-deep-brown",
+    slug: "wmns-boat-neck-half-sleeve-top-deep-brown",
+    name: "BEUTER® WMNS BOAT-NECK HALF-SLEEVE TOP",
+    color: "DEEP BROWN",
+    gender: "womens",
+    category: "tops",
+    price: 671760,
+    sizes: ["XS", "S", "M", "L"],
+    images: [
+      {
+        src: img("BEUTER-WMNS-BOAT-NECK-HALF-SLEEVE-TOP-DEEP-BROWN-1.jpg", "1768803707"),
+        alt: "BEUTER® WMNS Boat-Neck Half-Sleeve Top - Deep Brown",
+      },
+    ],
+    description: "Stretch boat-neck top with three-quarter sleeves.",
+    details: ["Cotton modal blend", "Boat neckline", "Three-quarter sleeves"],
+    composition: "70% cotton, 25% modal, 5% elastane",
   },
 ];
+
+export function formatVnd(amount: number): string {
+  return new Intl.NumberFormat("en-US").format(amount) + "vnđ";
+}

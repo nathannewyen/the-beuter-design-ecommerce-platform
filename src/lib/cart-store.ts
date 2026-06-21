@@ -20,6 +20,16 @@ function keyFor(productId: string, size: ProductSize) {
   return `${productId}::${size}`;
 }
 
+const browserStorage = createJSONStorage(() =>
+  typeof window === "undefined"
+    ? ({
+        getItem: () => null,
+        setItem: () => undefined,
+        removeItem: () => undefined,
+      } as Storage)
+    : window.localStorage,
+);
+
 export const useCart = create<CartState>()(
   persist(
     (set) => ({
@@ -65,7 +75,7 @@ export const useCart = create<CartState>()(
     }),
     {
       name: "beuter-cart",
-      storage: createJSONStorage(() => localStorage),
+      storage: browserStorage,
       partialize: (state) => ({ lines: state.lines }),
     },
   ),

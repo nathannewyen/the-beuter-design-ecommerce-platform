@@ -38,9 +38,13 @@ export function SiteHeader() {
     >
       <div className="hidden md:block border-b border-line/60 bg-background/50">
         <Container size="wide">
-          <p className="beuter-eyebrow text-muted py-2 text-center">
-            Worldwide shipping · Final sale items not eligible for return
-          </p>
+          <div className="beuter-eyebrow text-muted py-2 flex items-center justify-center gap-6">
+            <span>Summer 26 is live</span>
+            <span aria-hidden>·</span>
+            <span>Worldwide shipping from $22</span>
+            <span aria-hidden>·</span>
+            <span>Free returns within 14 days</span>
+          </div>
         </Container>
       </div>
 

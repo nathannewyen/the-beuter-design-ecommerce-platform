@@ -1,11 +1,7 @@
-const CURRENCY_FORMATTER = new Intl.NumberFormat("en-US", {
-  style: "currency",
-  currency: "USD",
-  maximumFractionDigits: 0,
-});
+const VND_FORMATTER = new Intl.NumberFormat("en-US");
 
 export function formatPrice(amount: number): string {
-  return CURRENCY_FORMATTER.format(amount);
+  return `${VND_FORMATTER.format(amount)}vnđ`;
 }
 
 export function formatPriceRange(min: number, max: number): string {

@@ -1,36 +1,35 @@
 import type { Campaign } from "@/types";
-import { campaignImages } from "./images";
 
 export const campaigns: Campaign[] = [
   {
     id: "summer-26",
     slug: "summer-26",
-    title: "Summer 26",
-    season: "SS26",
-    eyebrow: "Now showing",
+    title: "BEUTER® SUMMER 26",
+    season: "SUMMER 26",
+    eyebrow: "Soul Feels Good",
     description:
-      "Pieces shaped for long-haul wear in heat and humidity — washed cotton twill, silk satin, garment-dyed denim.",
+      "Pieces shaped for long-haul wear in heat and humidity — washed cotton twill, silk satin and garment-dyed denim.",
     hero: {
-      src: campaignImages.summer26Hero,
-      alt: "Summer 26 campaign hero",
+      src: "https://pos.nvncdn.com/fcb45e-89373/bn/20260608_V5gCmnQh.jpg",
+      alt: "BEUTER® Summer 26 campaign",
     },
     secondary: {
-      src: campaignImages.summer26Secondary,
-      alt: "Summer 26 secondary still",
+      src: "https://pos.nvncdn.com/fcb45e-89373/bn/20260608_XDaViBsW.jpg",
+      alt: "BEUTER® Summer 26 secondary still",
     },
     link: "/campaigns/summer-26",
   },
   {
     id: "spring-26-intermission",
     slug: "spring-26-intermission",
-    title: "Spring 26 Intermission",
-    season: "SS26",
+    title: "BEUTER® SPRING 26 INTERMISSION",
+    season: "SPRING 26",
     eyebrow: "In transition",
     description:
-      "A brief intermission of carry-over pieces from spring — knits, light outerwear and worn-in denim.",
+      "A short intermission of carry-over pieces from spring — knits, light outerwear and worn-in denim.",
     hero: {
-      src: campaignImages.spring26Intermission,
-      alt: "Spring 26 Intermission campaign",
+      src: "https://pos.nvncdn.com/fcb45e-89373/bn/20260608_9bmxt9DO.jpg",
+      alt: "BEUTER® Spring 26 Intermission",
     },
     link: "/campaigns/spring-26-intermission",
   },

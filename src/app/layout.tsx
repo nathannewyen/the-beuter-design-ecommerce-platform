@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
-import { Inter, Instrument_Serif } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
-import { SiteHeader } from "@/components/site-header";
+import { SiteSidebar } from "@/components/site-sidebar";
+import { TopUtility } from "@/components/top-utility";
+import { MobileTopBar } from "@/components/mobile-top-bar";
 import { SiteFooter } from "@/components/site-footer";
 import { CartDrawer } from "@/components/cart/cart-drawer";
 import { NewsletterModal } from "@/components/newsletter-modal";
@@ -12,14 +14,8 @@ const sans = Inter({
   subsets: ["latin"],
 });
 
-const display = Instrument_Serif({
-  variable: "--font-display",
-  subsets: ["latin"],
-  weight: "400",
-});
-
 export const viewport = {
-  themeColor: "#f5f3ee",
+  themeColor: "#ffffff",
   width: "device-width",
   initialScale: 1,
 };
@@ -27,7 +23,7 @@ export const viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.name} — ${siteConfig.tagline}`,
+    default: `${siteConfig.name}`,
     template: `%s · ${siteConfig.name}`,
   },
   description: siteConfig.description,
@@ -49,20 +45,23 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html
-      lang="en"
-      className={`${sans.variable} ${display.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col bg-background text-foreground">
+    <html lang="en" className={`${sans.variable} h-full antialiased`}>
+      <body className="min-h-full bg-background text-foreground">
         <a
           href="#main"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[60] focus:bg-foreground focus:text-background focus:px-3 focus:py-2 focus:beuter-eyebrow"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[60] focus:bg-foreground focus:text-background focus:px-3 focus:py-2 bd-eyebrow"
         >
           Skip to content
         </a>
-        <SiteHeader />
-        <main id="main" className="flex-1">{children}</main>
-        <SiteFooter />
+        <SiteSidebar />
+        <TopUtility />
+        <MobileTopBar />
+        <div className="md:pl-[var(--sidebar-width)] flex flex-col min-h-screen">
+          <main id="main" className="flex-1">
+            {children}
+          </main>
+          <SiteFooter />
+        </div>
         <CartDrawer />
         <NewsletterModal />
       </body>

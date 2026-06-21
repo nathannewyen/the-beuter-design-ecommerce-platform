@@ -3,7 +3,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { X } from "lucide-react";
-import { primaryNav, footerNav } from "@/lib/site";
+import { primaryNav, siteConfig } from "@/lib/site";
 import { Logo } from "@/components/brand/logo";
 
 interface MobileNavProps {
@@ -35,8 +35,8 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
             aria-modal
             aria-label="Mobile navigation"
           >
-            <div className="flex items-center justify-between px-5 h-16 border-b border-line">
-              <Logo />
+            <div className="flex items-center justify-between px-6 h-14 border-b border-line">
+              <Logo className="text-[20px]" />
               <button
                 type="button"
                 onClick={onClose}
@@ -46,32 +46,21 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
                 <X size={20} strokeWidth={1.5} />
               </button>
             </div>
-            <nav className="flex-1 overflow-y-auto px-5 py-8 flex flex-col gap-1">
+            <nav className="flex-1 overflow-y-auto px-6 py-6 flex flex-col gap-2">
               {primaryNav.map((item) => (
                 <Link
-                  key={item.href}
+                  key={item.href + item.label}
                   href={item.href}
                   onClick={onClose}
-                  className="text-2xl beuter-display py-3 border-b border-line/60"
+                  className="bd-nav-link py-2"
                 >
                   {item.label}
                 </Link>
               ))}
-              <div className="mt-8 grid grid-cols-2 gap-x-6 gap-y-2 beuter-eyebrow text-muted">
-                {footerNav.studio.map((item) => (
-                  <Link key={item.href} href={item.href} onClick={onClose}>
-                    {item.label}
-                  </Link>
-                ))}
-                {footerNav.support.map((item) => (
-                  <Link key={item.href} href={item.href} onClick={onClose}>
-                    {item.label}
-                  </Link>
-                ))}
-              </div>
             </nav>
-            <div className="px-5 py-5 border-t border-line text-[11px] tracking-[0.18em] uppercase text-muted">
-              EN / VN
+            <div className="px-6 py-5 border-t border-line text-[11px] tracking-[0.12em] uppercase opacity-60 space-y-1">
+              <p>Tiếng Việt / English</p>
+              <p>{siteConfig.legal.copyright}</p>
             </div>
           </motion.aside>
         </>

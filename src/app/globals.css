@@ -1,17 +1,14 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f5f3ee;
+  --background: #ffffff;
   --surface: #ffffff;
-  --foreground: #161512;
-  --muted: #8a857c;
-  --muted-strong: #4a463f;
-  --line: #e3ddd1;
-  --accent: #2a2a2a;
-  --sand: #d8cdb8;
-  --ash-blue: #b8c4cc;
-  --woodburn: #6d4a30;
-  --off-white: #ece6d8;
+  --foreground: #000000;
+  --muted: #000000;
+  --muted-soft: #6b6b6b;
+  --line: #e6e6e6;
+  --sidebar-width: 220px;
+  --top-bar-height: 64px;
 }
 
 @theme inline {
@@ -19,16 +16,9 @@
   --color-surface: var(--surface);
   --color-foreground: var(--foreground);
   --color-muted: var(--muted);
-  --color-muted-strong: var(--muted-strong);
+  --color-muted-soft: var(--muted-soft);
   --color-line: var(--line);
-  --color-accent: var(--accent);
-  --color-sand: var(--sand);
-  --color-ash-blue: var(--ash-blue);
-  --color-woodburn: var(--woodburn);
-  --color-off-white: var(--off-white);
   --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-  --font-display: var(--font-display);
 }
 
 * {
@@ -44,12 +34,6 @@ body {
 
 body {
   font-family: var(--font-sans), system-ui, sans-serif;
-  font-feature-settings: "ss01" on, "cv01" on;
-}
-
-::selection {
-  background: var(--foreground);
-  color: var(--background);
 }
 
 a {
@@ -57,15 +41,51 @@ a {
   text-decoration: none;
 }
 
-.beuter-eyebrow {
-  font-size: 0.6875rem;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  font-weight: 500;
+::selection {
+  background: var(--foreground);
+  color: var(--background);
 }
 
-.beuter-display {
-  font-family: var(--font-display, "Times New Roman"), serif;
-  letter-spacing: -0.02em;
-  line-height: 0.95;
+.bd-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.bd-nav-link {
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 500;
+  display: block;
+}
+
+.bd-section-label {
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.bd-subcategory {
+  font-size: 13px;
+  line-height: 1.9;
+  font-weight: 400;
+  color: var(--foreground);
+}
+
+.bd-product-name {
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-weight: 600;
+  text-align: center;
+}
+
+.bd-product-price {
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
 }

@@ -5,7 +5,6 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import type { Campaign } from "@/types";
-import { Container } from "@/components/container";
 import { cn } from "@/lib/utils";
 
 interface CampaignHeroProps {
@@ -20,16 +19,13 @@ export function CampaignHero({ campaigns, autoplayMs = 6500 }: CampaignHeroProps
 
   useEffect(() => {
     if (campaigns.length <= 1) return;
-    const id = window.setInterval(
-      () => setIndex((i) => i + 1),
-      autoplayMs,
-    );
+    const id = window.setInterval(() => setIndex((i) => i + 1), autoplayMs);
     return () => window.clearInterval(id);
   }, [autoplayMs, campaigns.length]);
 
   return (
-    <section className="relative overflow-hidden bg-foreground text-background">
-      <div className="relative aspect-[4/5] sm:aspect-[16/10] md:aspect-[21/9] w-full">
+    <section className="relative bg-black text-white">
+      <div className="relative h-[80vh] min-h-[560px] w-full">
         <AnimatePresence initial={false} mode="wait">
           <motion.div
             key={active.id}
@@ -47,45 +43,38 @@ export function CampaignHero({ campaigns, autoplayMs = 6500 }: CampaignHeroProps
               sizes="100vw"
               className="object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
           </motion.div>
         </AnimatePresence>
 
-        <Container size="wide" className="relative z-10 h-full flex items-end pb-12 md:pb-20">
-          <div className="max-w-2xl">
-            <p className="beuter-eyebrow text-background/80">{active.eyebrow}</p>
-            <h1 className="beuter-display text-background text-5xl sm:text-6xl md:text-7xl mt-4">
-              {active.title}
-            </h1>
-            <p className="mt-5 text-background/85 max-w-md text-sm sm:text-base leading-relaxed">
-              {active.description}
-            </p>
-            <Link
-              href={active.link ?? "/shop"}
-              className="mt-7 inline-flex items-center beuter-eyebrow text-background border-b border-background/60 hover:border-background pb-1"
-            >
-              Discover the collection
-            </Link>
-          </div>
-        </Container>
-      </div>
-
-      {campaigns.length > 1 && (
-        <div className="absolute z-10 bottom-6 right-6 sm:bottom-10 sm:right-10 flex gap-2">
-          {campaigns.map((c, i) => (
-            <button
-              key={c.id}
-              type="button"
-              aria-label={`Show ${c.title}`}
-              onClick={() => setIndex(i)}
-              className={cn(
-                "h-1 w-8 transition-colors",
-                i === safeIndex ? "bg-background" : "bg-background/40",
-              )}
-            />
-          ))}
+        <div className="absolute right-8 top-1/2 -translate-y-1/2 hidden md:block">
+          <p className="text-xl italic text-[#f0c25b] font-serif">{active.eyebrow}</p>
         </div>
-      )}
+
+        <Link
+          href={active.link ?? "/shop"}
+          className="absolute bottom-7 right-8 italic text-3xl font-serif text-white/95 hover:opacity-80"
+          style={{ fontFamily: 'Brush Script MT, "Snell Roundhand", cursive' }}
+        >
+          {active.season.toLowerCase()}
+        </Link>
+
+        {campaigns.length > 1 && (
+          <div className="absolute bottom-7 left-1/2 -translate-x-1/2 flex gap-2">
+            {campaigns.map((c, i) => (
+              <button
+                key={c.id}
+                type="button"
+                aria-label={`Show ${c.title}`}
+                onClick={() => setIndex(i)}
+                className={cn(
+                  "h-[2px] w-7 transition-colors",
+                  i === safeIndex ? "bg-white" : "bg-white/40",
+                )}
+              />
+            ))}
+          </div>
+        )}
+      </div>
     </section>
   );
 }

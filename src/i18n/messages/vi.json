@@ -1,0 +1,69 @@
+{
+  "nav": {
+    "summer26": "Summer 26",
+    "spring26": "Spring 26 Intermission",
+    "home": "Trang chủ",
+    "campaign": "Bộ sưu tập",
+    "webstore": "Cửa hàng",
+    "sale": "Giảm giá",
+    "about": "Giới thiệu",
+    "policy": "Chính sách",
+    "shipping": "Giao hàng quốc tế",
+    "careers": "Tuyển dụng",
+    "bag": "Giỏ hàng",
+    "search": "Tìm sản phẩm",
+    "skip": "Bỏ qua đến nội dung"
+  },
+  "footer": {
+    "newsletter": "đăng ký nhận tin",
+    "facebook": "facebook",
+    "instagram": "instagram",
+    "address": "ĐỊA CHỈ",
+    "hotline": "HOTLINE",
+    "email": "MAIL"
+  },
+  "home": {
+    "newArrival": "Sản phẩm mới",
+    "viewAll": "Xem tất cả"
+  },
+  "shop": {
+    "newArrival": "Sản phẩm mới",
+    "worldwideShipping": "Giao hàng quốc tế",
+    "collections": "Bộ sưu tập",
+    "tops": "Áo",
+    "bottoms": "Quần & váy",
+    "accessories": "Phụ kiện",
+    "emptyTitle": "Không có sản phẩm phù hợp.",
+    "emptyBody": "Hãy bỏ một bộ lọc hoặc xem toàn bộ cửa hàng."
+  },
+  "product": {
+    "addToCart": "Thêm vào giỏ",
+    "size": "Kích cỡ",
+    "sizeGuide": "Bảng kích cỡ",
+    "description": "Mô tả",
+    "details": "Chi tiết",
+    "composition": "Chất liệu & bảo quản",
+    "shipping": "Vận chuyển & đổi trả",
+    "shippingBody": "Miễn phí vận chuyển trong Việt Nam. Giá cố định toàn cầu. Đổi trả trong vòng 14 ngày với sản phẩm chưa qua sử dụng.",
+    "youMayAlsoLike": "Có thể bạn cũng thích"
+  },
+  "cart": {
+    "title": "Giỏ hàng",
+    "items": "{count, plural, other {# sản phẩm}}",
+    "subtotal": "Tạm tính",
+    "shipping": "Vận chuyển",
+    "calculatedAtCheckout": "Tính khi thanh toán",
+    "total": "Tổng cộng",
+    "checkout": "Thanh toán",
+    "freeReturns": "Đổi trả miễn phí trong 14 ngày",
+    "freeShippingProgress": "Còn {remaining} để được miễn phí giao hàng quốc tế.",
+    "freeShippingReached": "Bạn được miễn phí giao hàng quốc tế.",
+    "empty": "Giỏ hàng đang trống.",
+    "emptyBody": "Khám phá bộ sưu tập mùa này hoặc xem lại lưu trữ.",
+    "exploreShop": "Khám phá cửa hàng"
+  },
+  "locale": {
+    "english": "English",
+    "vietnamese": "Tiếng Việt"
+  }
+}

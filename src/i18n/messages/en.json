@@ -1,0 +1,69 @@
+{
+  "nav": {
+    "summer26": "Summer 26",
+    "spring26": "Spring 26 Intermission",
+    "home": "Home",
+    "campaign": "Campaign",
+    "webstore": "Webstore",
+    "sale": "Sale",
+    "about": "About Us",
+    "policy": "Policy",
+    "shipping": "Worldwide Shipping",
+    "careers": "Job Opportunities",
+    "bag": "Shopping Bag",
+    "search": "Search a product",
+    "skip": "Skip to content"
+  },
+  "footer": {
+    "newsletter": "signup newsletter",
+    "facebook": "facebook",
+    "instagram": "instagram",
+    "address": "ADDRESS",
+    "hotline": "HOTLINE",
+    "email": "MAIL"
+  },
+  "home": {
+    "newArrival": "New Arrival",
+    "viewAll": "View all"
+  },
+  "shop": {
+    "newArrival": "New Arrival",
+    "worldwideShipping": "Worldwide Shipping",
+    "collections": "Collections",
+    "tops": "Tops",
+    "bottoms": "Bottoms",
+    "accessories": "Accessories",
+    "emptyTitle": "Nothing matches that combination.",
+    "emptyBody": "Try removing a filter or browse the whole shop."
+  },
+  "product": {
+    "addToCart": "Add to cart",
+    "size": "Size",
+    "sizeGuide": "Size guide",
+    "description": "Description",
+    "details": "Details",
+    "composition": "Composition & care",
+    "shipping": "Shipping & returns",
+    "shippingBody": "Free shipping in Vietnam. Worldwide flat-rate. Returns within 14 days for unworn items in original packaging.",
+    "youMayAlsoLike": "You may also like"
+  },
+  "cart": {
+    "title": "Cart",
+    "items": "{count, plural, one {# item} other {# items}}",
+    "subtotal": "Subtotal",
+    "shipping": "Shipping",
+    "calculatedAtCheckout": "Calculated at checkout",
+    "total": "Total",
+    "checkout": "Checkout",
+    "freeReturns": "Free returns within 14 days",
+    "freeShippingProgress": "{remaining} away from free worldwide shipping.",
+    "freeShippingReached": "You qualify for free worldwide shipping.",
+    "empty": "Your cart is empty.",
+    "emptyBody": "Browse the season floor or pick something from the archive.",
+    "exploreShop": "Explore the shop"
+  },
+  "locale": {
+    "english": "English",
+    "vietnamese": "Tiếng Việt"
+  }
+}

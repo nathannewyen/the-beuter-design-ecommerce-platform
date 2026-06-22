@@ -19,29 +19,31 @@ export const siteConfig = {
 } as const;
 
 export const primaryNav = [
-  { label: "Summer 26", href: "/campaigns/summer-26" },
-  { label: "Spring 26 Intermission", href: "/campaigns/spring-26-intermission" },
-  { label: "Trang chủ", href: "/" },
-  { label: "Campaign", href: "/campaigns" },
-  { label: "Webstore", href: "/shop" },
-  { label: "Sale", href: "/shop?on_sale=1" },
-  { label: "About Us", href: "/about" },
-  { label: "Policy", href: "/policy" },
-  { label: "Worldwide Shipping", href: "/shipping" },
-  { label: "Job Opportunities", href: "/careers" },
+  { key: "summer26", href: "/campaigns/summer-26" },
+  { key: "spring26", href: "/campaigns/spring-26-intermission" },
+  { key: "home", href: "/" },
+  { key: "campaign", href: "/campaigns" },
+  { key: "webstore", href: "/shop" },
+  { key: "sale", href: "/shop?on_sale=1" },
+  { key: "about", href: "/about" },
+  { key: "policy", href: "/policy" },
+  { key: "shipping", href: "/shipping" },
+  { key: "careers", href: "/careers" },
 ] as const;
+
+export type PrimaryNavKey = (typeof primaryNav)[number]["key"];
 
 export const shopCategoryNav = [
   {
-    title: "New Arrival",
-    items: [{ label: "New Arrival", href: "/shop?sort=newest" }],
+    titleKey: "newArrival",
+    items: [{ labelKey: "newArrival", href: "/shop?sort=newest" }],
   },
   {
-    title: "Worldwide Shipping",
-    items: [{ label: "Worldwide Shipping", href: "/shipping" }],
+    titleKey: "worldwideShipping",
+    items: [{ labelKey: "worldwideShipping", href: "/shipping" }],
   },
   {
-    title: "Collections",
+    titleKey: "collections",
     items: [
       { label: "Summer 26", href: "/campaigns/summer-26" },
       { label: "Spring 26 Intermission", href: "/campaigns/spring-26-intermission" },
@@ -53,7 +55,7 @@ export const shopCategoryNav = [
     ],
   },
   {
-    title: "Tops",
+    titleKey: "tops",
     items: [
       { label: "Blazer", href: "/shop?category=blazer" },
       { label: "Graphic t-shirt", href: "/shop?category=graphic-tee" },
@@ -68,7 +70,7 @@ export const shopCategoryNav = [
     ],
   },
   {
-    title: "Bottoms",
+    titleKey: "bottoms",
     items: [
       { label: "Jeans", href: "/shop?category=denim" },
       { label: "Trousers", href: "/shop?category=trousers" },
@@ -80,7 +82,7 @@ export const shopCategoryNav = [
     ],
   },
   {
-    title: "Accessories",
+    titleKey: "accessories",
     items: [
       { label: "Backpacks", href: "/shop?category=backpack" },
       { label: "Bags", href: "/shop?category=bag" },

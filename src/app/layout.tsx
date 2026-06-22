@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { NextIntlClientProvider } from "next-intl";
+import { getLocale, getMessages, getTranslations } from "next-intl/server";
 import "./globals.css";
 import { SiteSidebar } from "@/components/site-sidebar";
 import { TopUtility } from "@/components/top-utility";
@@ -41,29 +43,35 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+  const locale = await getLocale();
+  const messages = await getMessages();
+  const t = await getTranslations("nav");
+
   return (
-    <html lang="en" className={`${sans.variable} h-full antialiased`}>
+    <html lang={locale} className={`${sans.variable} h-full antialiased`}>
       <body className="min-h-full bg-background text-foreground">
-        <a
-          href="#main"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[60] focus:bg-foreground focus:text-background focus:px-3 focus:py-2 bd-eyebrow"
-        >
-          Skip to content
-        </a>
-        <SiteSidebar />
-        <TopUtility />
-        <MobileTopBar />
-        <div className="md:pl-[var(--sidebar-width)] flex flex-col min-h-screen">
-          <main id="main" className="flex-1">
-            {children}
-          </main>
-          <SiteFooter />
-        </div>
-        <CartDrawer />
-        <NewsletterModal />
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          <a
+            href="#main"
+            className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[60] focus:bg-foreground focus:text-background focus:px-3 focus:py-2 bd-eyebrow"
+          >
+            {t("skip")}
+          </a>
+          <SiteSidebar />
+          <TopUtility />
+          <MobileTopBar />
+          <div className="md:pl-[var(--sidebar-width)] flex flex-col min-h-screen">
+            <main id="main" className="flex-1">
+              {children}
+            </main>
+            <SiteFooter />
+          </div>
+          <CartDrawer />
+          <NewsletterModal />
+        </NextIntlClientProvider>
       </body>
     </html>
   );

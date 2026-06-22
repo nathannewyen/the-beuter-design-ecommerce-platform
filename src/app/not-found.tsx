@@ -10,8 +10,8 @@ export default function NotFound() {
         This page is between collections.
       </h1>
       <p className="mt-5 text-muted-strong max-w-md">
-        The page you're looking for may have moved or been archived with the
-        last season. Head back to the storefront to keep browsing.
+        The page you&rsquo;re looking for may have moved or been archived with
+        the last season. Head back to the storefront to keep browsing.
       </p>
       <Link href="/" className="mt-8">
         <Button size="md">Return home</Button>

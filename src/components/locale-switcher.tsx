@@ -15,6 +15,11 @@ const LABEL: Record<Locale, string> = {
   vi: "Tiếng Việt",
 };
 
+function setLocaleCookie(value: Locale) {
+  const oneYear = 60 * 60 * 24 * 365;
+  globalThis.document.cookie = `${LOCALE_COOKIE}=${value}; path=/; max-age=${oneYear}; samesite=lax`;
+}
+
 export function LocaleSwitcher({ className }: LocaleSwitcherProps) {
   const current = useLocale() as Locale;
   const router = useRouter();
@@ -22,8 +27,7 @@ export function LocaleSwitcher({ className }: LocaleSwitcherProps) {
 
   function set(next: Locale) {
     if (next === current) return;
-    const oneYear = 60 * 60 * 24 * 365;
-    document.cookie = `${LOCALE_COOKIE}=${next}; path=/; max-age=${oneYear}; samesite=lax`;
+    setLocaleCookie(next);
     startTransition(() => router.refresh());
   }
 

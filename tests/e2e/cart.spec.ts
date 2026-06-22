@@ -13,7 +13,7 @@ test("adding to cart opens the drawer with the line item", async ({ page }) => {
   const drawer = page.getByRole("dialog", { name: /cart/i });
   await expect(drawer).toBeVisible();
   await expect(drawer.getByText(/BEUTER® WMNS SATIN SHIRT/i)).toBeVisible();
-  await expect(drawer.getByText(/checkout/i)).toBeVisible();
+  await expect(drawer.getByRole("button", { name: /^checkout$/i })).toBeVisible();
 
   await page.keyboard.press("Escape");
   await expect(drawer).not.toBeVisible();

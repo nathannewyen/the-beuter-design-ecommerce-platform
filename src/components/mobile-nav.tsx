@@ -3,8 +3,10 @@
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { X } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { primaryNav, siteConfig } from "@/lib/site";
 import { Logo } from "@/components/brand/logo";
+import { LocaleSwitcher } from "@/components/locale-switcher";
 
 interface MobileNavProps {
   open: boolean;
@@ -12,6 +14,7 @@ interface MobileNavProps {
 }
 
 export function MobileNav({ open, onClose }: MobileNavProps) {
+  const t = useTranslations("nav");
   return (
     <AnimatePresence>
       {open && (
@@ -49,18 +52,20 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
             <nav className="flex-1 overflow-y-auto px-6 py-6 flex flex-col gap-2">
               {primaryNav.map((item) => (
                 <Link
-                  key={item.href + item.label}
+                  key={item.href + item.key}
                   href={item.href}
                   onClick={onClose}
                   className="bd-nav-link py-2"
                 >
-                  {item.label}
+                  {t(item.key)}
                 </Link>
               ))}
             </nav>
-            <div className="px-6 py-5 border-t border-line text-[11px] tracking-[0.12em] uppercase opacity-60 space-y-1">
-              <p>Tiếng Việt / English</p>
-              <p>{siteConfig.legal.copyright}</p>
+            <div className="px-6 py-5 border-t border-line space-y-3">
+              <LocaleSwitcher />
+              <p className="text-[11px] tracking-[0.12em] uppercase opacity-60">
+                {siteConfig.legal.copyright}
+              </p>
             </div>
           </motion.aside>
         </>

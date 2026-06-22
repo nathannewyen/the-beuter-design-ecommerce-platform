@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { Search, User } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { useCart } from "@/lib/cart-store";
 
 export function TopUtility() {
@@ -9,6 +10,7 @@ export function TopUtility() {
     s.lines.reduce((total, line) => total + line.quantity, 0),
   );
   const openCart = useCart((s) => s.open);
+  const t = useTranslations("nav");
 
   return (
     <div className="hidden md:flex fixed top-7 right-7 z-30 items-center gap-8">
@@ -16,7 +18,7 @@ export function TopUtility() {
         <User size={18} strokeWidth={1.5} />
       </Link>
       <Link href="/search" className="bd-nav-link inline-flex items-center gap-2 hover:opacity-60">
-        Search a product
+        {t("search")}
         <Search size={14} strokeWidth={1.5} />
       </Link>
       <button
@@ -24,7 +26,7 @@ export function TopUtility() {
         onClick={openCart}
         className="bd-nav-link hover:opacity-60"
       >
-        Shopping Bag ({itemCount})
+        {t("bag")} ({itemCount})
       </button>
     </div>
   );

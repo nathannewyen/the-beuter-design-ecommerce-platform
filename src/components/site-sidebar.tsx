@@ -2,7 +2,9 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useTranslations } from "next-intl";
 import { Logo } from "@/components/brand/logo";
+import { LocaleSwitcher } from "@/components/locale-switcher";
 import { primaryNav, siteConfig } from "@/lib/site";
 import { useCart } from "@/lib/cart-store";
 import { cn } from "@/lib/utils";
@@ -13,6 +15,7 @@ export function SiteSidebar() {
     s.lines.reduce((total, line) => total + line.quantity, 0),
   );
   const openCart = useCart((s) => s.open);
+  const t = useTranslations("nav");
 
   return (
     <aside
@@ -28,14 +31,14 @@ export function SiteSidebar() {
               : pathname.startsWith(item.href.split("?")[0]);
           return (
             <Link
-              key={item.href + item.label}
+              key={item.href + item.key}
               href={item.href}
               className={cn(
                 "bd-nav-link transition-opacity hover:opacity-60",
                 isActive ? "opacity-100" : "opacity-90",
               )}
             >
-              {item.label}
+              {t(item.key)}
             </Link>
           );
         })}
@@ -44,17 +47,15 @@ export function SiteSidebar() {
           onClick={openCart}
           className="bd-nav-link mt-1 text-left transition-opacity hover:opacity-60"
         >
-          Shopping Bag ({itemCount})
+          {t("bag")} ({itemCount})
         </button>
       </nav>
-      <div className="mt-auto pt-6 flex gap-3 bd-eyebrow opacity-70">
-        <span className="opacity-50">Tiếng Việt</span>
-        <span>/</span>
-        <span>English</span>
+      <div className="mt-auto pt-6">
+        <LocaleSwitcher />
+        <p className="mt-3 text-[10px] tracking-[0.12em] uppercase opacity-50 max-w-[160px] leading-relaxed">
+          {siteConfig.legal.copyright}
+        </p>
       </div>
-      <p className="mt-3 text-[10px] tracking-[0.12em] uppercase opacity-50 max-w-[160px] leading-relaxed">
-        {siteConfig.legal.copyright}
-      </p>
     </aside>
   );
 }

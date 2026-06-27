@@ -6,7 +6,6 @@ import { X } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { primaryNav, siteConfig } from "@/lib/site";
 import { Logo } from "@/components/brand/logo";
-import { LocaleSwitcher } from "@/components/locale-switcher";
 
 interface MobileNavProps {
   open: boolean;
@@ -62,7 +61,6 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
               ))}
             </nav>
             <div className="px-6 py-5 border-t border-line space-y-3">
-              <LocaleSwitcher />
               <p className="text-[11px] tracking-[0.12em] uppercase opacity-60">
                 {siteConfig.legal.copyright}
               </p>

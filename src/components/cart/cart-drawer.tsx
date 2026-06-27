@@ -3,6 +3,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { X } from "lucide-react";
 import { useEffect, useMemo } from "react";
+import { useRouter } from "next/navigation";
 import { useCart } from "@/lib/cart-store";
 import { products } from "@/data";
 import { CartLineItem } from "./cart-line-item";
@@ -13,6 +14,12 @@ export function CartDrawer() {
   const isOpen = useCart((s) => s.isOpen);
   const close = useCart((s) => s.close);
   const lines = useCart((s) => s.lines);
+  const router = useRouter();
+
+  function goToCheckout() {
+    close();
+    router.push("/checkout");
+  }
 
   useEffect(() => {
     if (!isOpen) return;
@@ -105,7 +112,7 @@ export function CartDrawer() {
                     />
                   ))}
                 </ul>
-                <CartSummary subtotal={subtotal} />
+                <CartSummary subtotal={subtotal} onCheckout={goToCheckout} />
               </>
             )}
           </motion.aside>

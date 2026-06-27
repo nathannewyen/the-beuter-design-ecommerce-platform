@@ -45,7 +45,7 @@ export function ProductDetails({
       title: "Shipping & returns",
       body: (
         <p className="text-sm leading-relaxed text-muted-strong">
-          Free shipping in Vietnam. Worldwide flat-rate. Returns within 14 days
+          Worldwide flat-rate shipping via DHL Express. Returns within 14 days
           for unworn items in original packaging.
         </p>
       ),

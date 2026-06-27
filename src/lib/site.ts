@@ -6,8 +6,8 @@ export const siteConfig = {
   url: "https://the-beuter-design.local",
   locale: "en",
   legal: {
-    company: "CÔNG TY TNHH THE BEUTER",
-    address: "9B PHÙNG KHẮC KHOAN, PHƯỜNG SÀI GÒN, TP.HCM",
+    company: "THE BEUTER LIMITED",
+    address: "9B Phung Khac Khoan St, Saigon Ward, Ho Chi Minh City",
     hotline: "077.915.0000",
     email: "info@thebeuter.com",
     copyright: "© 2026 THE BEUTER",

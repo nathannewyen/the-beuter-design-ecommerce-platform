@@ -44,7 +44,7 @@
     "details": "Details",
     "composition": "Composition & care",
     "shipping": "Shipping & returns",
-    "shippingBody": "Free shipping in Vietnam. Worldwide flat-rate. Returns within 14 days for unworn items in original packaging.",
+    "shippingBody": "Worldwide flat-rate shipping via DHL Express. Returns within 14 days for unworn items in original packaging.",
     "youMayAlsoLike": "You may also like"
   },
   "cart": {
@@ -62,8 +62,35 @@
     "emptyBody": "Browse the season floor or pick something from the archive.",
     "exploreShop": "Explore the shop"
   },
-  "locale": {
-    "english": "English",
-    "vietnamese": "Tiếng Việt"
+  "checkout": {
+    "title": "Shipping information",
+    "loginReminder": "Sign in before checkout to apply your membership benefits. Final-sale items are not eligible for size or color exchanges.",
+    "fullName": "Full name",
+    "email": "Email",
+    "phone": "Phone number",
+    "shipToDifferent": "Ship to a different address",
+    "address": "Address",
+    "country": "Country",
+    "selectCountry": "Select country",
+    "state": "State / Province",
+    "city": "City",
+    "postalCode": "Postal code",
+    "note": "Order notes (optional)",
+    "paymentMethod": "Payment method",
+    "paymentOnline": "Online payment (Card · Apple Pay · Google Pay)",
+    "paymentCod": "Cash on delivery (COD)",
+    "paymentTransfer": "Bank transfer",
+    "summary": "Order summary",
+    "subtotal": "Subtotal",
+    "shipping": "Shipping",
+    "total": "Total",
+    "discount": "Discount",
+    "discountCodePrompt": "Have a discount code? Enter it below.",
+    "discountCodePlaceholder": "Discount code",
+    "applyDiscount": "Apply",
+    "placeOrder": "Place order",
+    "emptyTitle": "Your cart is empty.",
+    "emptyBody": "Add something to the cart before placing an order.",
+    "returnToShop": "Return to the shop"
   }
 }

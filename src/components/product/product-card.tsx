@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Product } from "@/types";
-import { formatVnd } from "@/data/products";
+import { formatPrice } from "@/lib/format";
 import { cn } from "@/lib/utils";
 
 interface ProductCardProps {
@@ -31,7 +31,7 @@ export function ProductCard({ product, priority, className }: ProductCardProps) 
         <p className="bd-product-name">
           {product.name} - {product.color}
         </p>
-        <p className="bd-product-price">{formatVnd(product.price)}</p>
+        <p className="bd-product-price">{formatPrice(product.price)}</p>
       </div>
     </Link>
   );

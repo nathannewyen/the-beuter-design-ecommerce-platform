@@ -4,7 +4,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { Logo } from "@/components/brand/logo";
-import { LocaleSwitcher } from "@/components/locale-switcher";
 import { primaryNav, siteConfig } from "@/lib/site";
 import { useCart } from "@/lib/cart-store";
 import { cn } from "@/lib/utils";
@@ -51,8 +50,7 @@ export function SiteSidebar() {
         </button>
       </nav>
       <div className="mt-auto pt-6">
-        <LocaleSwitcher />
-        <p className="mt-3 text-[10px] tracking-[0.12em] uppercase opacity-50 max-w-[160px] leading-relaxed">
+        <p className="text-[10px] tracking-[0.12em] uppercase opacity-50 max-w-[160px] leading-relaxed">
           {siteConfig.legal.copyright}
         </p>
       </div>
